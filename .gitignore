@@ -25,3 +25,8 @@ dist-ssr
 
 #projecto
 src/services/productServices.js
+
+node_modules
+.env
+.DS_Store
+build
