@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const SHOP_NAME = process.env.REACT_APP_SHOPIFY_SHOP_NAME;
-const ACCESS_TOKEN = process.env.REACT_APP_SHOPIFY_ACCESS_TOKEN;
-const API_VERSION = process.env.REACT_APP_SHOPIFY_API_VERSION;
+const SHOP_NAME = import.meta.env.VITE_SHOPIFY_SHOP_NAME;  // Usa import.meta.env en Vite
+const ACCESS_TOKEN = import.meta.env.VITE_SHOPIFY_ACCESS_TOKEN;
+const API_VERSION = import.meta.env.VITE_SHOPIFY_API_VERSION;
 
 const shopifyClient = axios.create({
     baseURL: `https://${SHOP_NAME}.myshopify.com/api/${API_VERSION}`,
