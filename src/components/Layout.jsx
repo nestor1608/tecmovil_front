@@ -71,10 +71,10 @@ const Layout = () => {
                   minWidth: 'auto'
                 }}
               >
-                +54 3757 460569
+                +543757460569
               </Button>
               <Button 
-                href="mailto:info@tecmovil.com" 
+                href="mailto:Nor-cell@hotmail.com" 
                 startIcon={<Mail size={16} />}
                 sx={{ 
                   color: 'white',
@@ -85,7 +85,7 @@ const Layout = () => {
                   minWidth: 'auto'
                 }}
               >
-                info@tecmovil.com
+                Nor-cell@hotmail.com
               </Button>
             </Box>
             <Typography variant="body2">
@@ -245,7 +245,7 @@ const Layout = () => {
           <Box sx={{ px: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
             <Button 
               fullWidth
-              href="tel:+34600000000" 
+              href="tel:+543757460569" 
               startIcon={<Phone size={18} />}
               sx={{ 
                 justifyContent: 'flex-start',
@@ -255,11 +255,11 @@ const Layout = () => {
                 p: 0
               }}
             >
-              +34 600 000 000
+              +543757460569
             </Button>
             <Button 
               fullWidth
-              href="mailto:info@tecmovil.com" 
+              href="mailto:Nor-cell@hotmail.com" 
               startIcon={<Mail size={18} />}
               sx={{ 
                 justifyContent: 'flex-start',
@@ -269,7 +269,7 @@ const Layout = () => {
                 p: 0
               }}
             >
-              info@tecmovil.com
+              Nor-cell@hotmail.com
             </Button>
             <Typography variant="caption" sx={{ color: 'text.secondary' }}>
               Lun - Vie: 9:00 - 20:00 | Sáb: 10:00 - 14:00

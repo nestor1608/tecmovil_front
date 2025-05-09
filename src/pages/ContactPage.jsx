@@ -1,18 +1,19 @@
 import { MapPin, Phone, Mail, Clock, Smartphone, Shield } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  Paper, 
-  Grid, 
-  Avatar, 
-  Link, 
-  Accordion, 
-  AccordionSummary, 
+import {
+  Box,
+  Container,
+  Typography,
+  Paper,
+  Grid,
+  Avatar,
+  Link,
+  Accordion,
+  AccordionSummary,
   AccordionDetails,
-  useTheme
+  useTheme,
 } from '@mui/material';
+import {WhatsApp } from '@mui/icons-material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const ContactPage = () => {
@@ -21,8 +22,8 @@ const ContactPage = () => {
   return (
     <Box sx={{ backgroundColor: 'background.default' }}>
       {/* Hero section */}
-      <Box 
-        sx={{ 
+      <Box
+        sx={{
           py: 8,
           backgroundColor: '#0f172a',
           color: 'primary.contrastText'
@@ -40,7 +41,7 @@ const ContactPage = () => {
           </Box>
         </Container>
       </Box>
-      
+
       {/* Content section */}
       <Box sx={{ py: 8, backgroundColor: 'background.paper' }}>
         <Container maxWidth="lg">
@@ -49,14 +50,14 @@ const ContactPage = () => {
             <Grid size={{ xs: 12, sm: 6 }}>
               <ContactForm />
             </Grid>
-            
+
             {/* Contact information */}
             <Grid size={{ xs: 12, sm: 6 }}>
               <Paper elevation={3} sx={{ p: 4, mb: 4 }}>
                 <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 600 }}>
                   Información de contacto
                 </Typography>
-                
+
                 <Box sx={{ '& > div': { mb: 3 } }}>
                   <Box display="flex">
                     <Avatar sx={{ bgcolor: 'primary', color: 'primary.main', mr: 2 }}>
@@ -72,7 +73,7 @@ const ContactPage = () => {
                       </Typography>
                     </Box>
                   </Box>
-                  
+
                   <Box display="flex">
                     <Avatar sx={{ bgcolor: 'primary', color: 'primary.main', mr: 2 }}>
                       <Phone />
@@ -81,8 +82,8 @@ const ContactPage = () => {
                       <Typography variant="h6" component="h4" gutterBottom sx={{ fontWeight: 500 }}>
                         Teléfono
                       </Typography>
-                      <Link 
-                        href="tel:+543757460569" 
+                      <Link
+                        href="tel:+543757460569"
                         color="primary.main"
                         underline="hover"
                         sx={{ '&:hover': { color: 'primary.dark' } }}
@@ -91,7 +92,7 @@ const ContactPage = () => {
                       </Link>
                     </Box>
                   </Box>
-                  
+
                   <Box display="flex">
                     <Avatar sx={{ bgcolor: 'primary', color: 'primary.main', mr: 2 }}>
                       <Mail />
@@ -100,17 +101,38 @@ const ContactPage = () => {
                       <Typography variant="h6" component="h4" gutterBottom sx={{ fontWeight: 500 }}>
                         Email
                       </Typography>
-                      <Link 
-                        href="mailto:info@tecmovil.com" 
+                      <Link
+                        href="mailto:info@tecmovil.com"
                         color="primary.main"
                         underline="hover"
                         sx={{ '&:hover': { color: 'primary.dark' } }}
                       >
-                        info@tecmovil.com
+                        Nor-cell@hotmail.com
                       </Link>
                     </Box>
                   </Box>
-                  
+
+                  <Box display="flex">
+                    <Avatar sx={{ bgcolor: 'primary', color: 'primary.main', mr: 2 }}>
+                      <WhatsApp  />
+                    </Avatar>
+                    <Box>
+                      <Typography variant="h6" component="h4" gutterBottom sx={{ fontWeight: 500 }}>
+                        WhatsApp
+                      </Typography>
+                      <Link
+                        href="https://wa.me/+543757460569" // Reemplaza con tu número real
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        color="primary.main"
+                        underline="hover"
+                        sx={{ '&:hover': { color: 'primary.dark' } }}
+                      >
+                        +54 3757 460569
+                      </Link>
+                    </Box>
+                  </Box>
+
                   <Box display="flex">
                     <Avatar sx={{ bgcolor: 'primary', color: 'primary.main', mr: 2 }}>
                       <Clock />
@@ -127,18 +149,18 @@ const ContactPage = () => {
                   </Box>
                 </Box>
               </Paper>
-              
+
               {/* Why choose us */}
               <Paper elevation={3} sx={{ p: 4 }}>
                 <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 600 }}>
                   ¿Por qué elegirnos?
                 </Typography>
-                
+
                 <Box sx={{ '& > div': { mb: 2 } }}>
                   <Box display="flex" alignItems="flex-start">
-                    <Avatar sx={{ 
-                      bgcolor: 'transparent', 
-                      color: 'primary.main', 
+                    <Avatar sx={{
+                      bgcolor: 'transparent',
+                      color: 'primary.main',
                       mr: 2,
                       width: 24,
                       height: 24
@@ -154,11 +176,11 @@ const ContactPage = () => {
                       </Typography>
                     </Box>
                   </Box>
-                  
+
                   <Box display="flex" alignItems="flex-start">
-                    <Avatar sx={{ 
-                      bgcolor: 'transparent', 
-                      color: 'primary.main', 
+                    <Avatar sx={{
+                      bgcolor: 'transparent',
+                      color: 'primary.main',
                       mr: 2,
                       width: 24,
                       height: 24
@@ -174,11 +196,11 @@ const ContactPage = () => {
                       </Typography>
                     </Box>
                   </Box>
-                  
+
                   <Box display="flex" alignItems="flex-start">
-                    <Avatar sx={{ 
-                      bgcolor: 'transparent', 
-                      color: 'primary.main', 
+                    <Avatar sx={{
+                      bgcolor: 'transparent',
+                      color: 'primary.main',
                       mr: 2,
                       width: 24,
                       height: 24
@@ -200,28 +222,28 @@ const ContactPage = () => {
           </Grid>
         </Container>
       </Box>
-      
-      {/* Map section */}
+
+      {/* Map section
       <Box sx={{ height: 400, position: 'relative' }}>
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24290.206295238086!2d-3.7048580714877277!3d40.41669715059851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sMadrid%2C%20Spain!5e0!3m2!1sen!2sus!4v1653398288797!5m2!1sen!2sus" 
-          width="100%" 
-          height="100%" 
-          style={{ border: 0 }} 
-          allowFullScreen={false} 
-          loading="lazy" 
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24290.206295238086!2d-3.7048580714877277!3d40.41669715059851!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sMadrid%2C%20Spain!5e0!3m2!1sen!2sus!4v1653398288797!5m2!1sen!2sus"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen={false}
+          loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           title="Ubicación de TEC Movil"
         ></iframe>
-      </Box>
-      
+      </Box> */}
+
       {/* FAQ Section */}
       <Box sx={{ py: 8, backgroundColor: 'background.default' }}>
         <Container maxWidth="md">
           <Typography variant="h3" component="h2" align="center" gutterBottom sx={{ fontWeight: 700 }}>
             Preguntas frecuentes
           </Typography>
-          
+
           <Box sx={{ '& > div': { mb: 2 } }}>
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -231,12 +253,12 @@ const ContactPage = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography variant="body2" color="text.secondary">
-                  La mayoría de nuestras reparaciones se realizan en menos de una hora, dependiendo del tipo de reparación y la disponibilidad de repuestos. 
+                  La mayoría de nuestras reparaciones se realizan en menos de una hora, dependiendo del tipo de reparación y la disponibilidad de repuestos.
                   En casos más complejos, podemos necesitar hasta 24 horas.
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            
+
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
@@ -249,7 +271,7 @@ const ContactPage = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            
+
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
@@ -262,7 +284,7 @@ const ContactPage = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            
+
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>
@@ -275,7 +297,7 @@ const ContactPage = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-            
+
             <Accordion>
               <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <Typography variant="subtitle1" sx={{ fontWeight: 500 }}>

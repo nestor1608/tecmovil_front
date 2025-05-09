@@ -129,27 +129,27 @@ const Footer = () => {
               <ContactItem>
                 <ContactIcon><MapPin size={20} /></ContactIcon>
                 <Typography variant="body2">
-                  Calle Tecnología 123<br />
-                  28001 Madrid, España
+                  Av. Los Pioneros Centro<br />
+                  Comandante Andresito Misiones, Argentina.
                 </Typography>
               </ContactItem>
               <ContactItem>
                 <ContactIcon><Phone size={20} /></ContactIcon>
-                <FooterLink href="tel:+34600000000">+34 600 000 000</FooterLink>
+                <FooterLink href="tel:+543757460569">+543757460569</FooterLink>
               </ContactItem>
               <ContactItem>
                 <ContactIcon><MessageSquare size={20} /></ContactIcon>
-                <FooterLink href="https://wa.me/34600000000">WhatsApp</FooterLink>
+                <FooterLink href="https://wa.me/+543757460569">WhatsApp</FooterLink>
               </ContactItem>
               <ContactItem>
                 <ContactIcon><Mail size={20} /></ContactIcon>
-                <FooterLink href="mailto:info@tecmovil.com">info@tecmovil.com</FooterLink>
+                <FooterLink href="mailto:info@tecmovil.com">Nor-cell@hotmail.com</FooterLink>
               </ContactItem>
               <ContactItem>
                 <ContactIcon><Clock size={20} /></ContactIcon>
                 <Typography variant="body2">
-                  Lun - Vie: 9:00 - 20:00<br />
-                  Sáb: 10:00 - 14:00
+                Lunes - Sábados 08:00 a 12:00 - 16:00 a 20:00<br />
+                Domingos: Cerrado
                 </Typography>
               </ContactItem>
             </FooterSection>
