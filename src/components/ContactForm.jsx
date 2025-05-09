@@ -18,6 +18,7 @@ import {
   Link,
   useTheme
 } from '@mui/material';
+import { sendContactForm } from '../services/productServices' 
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -28,22 +29,25 @@ const ContactForm = () => {
     issue: '',
     message: ''
   });
-  
+
   const [formStatus, setFormStatus] = useState('idle');
+  const [error, setError] = useState(null);
   const theme = useTheme();
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
-  
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('submitting');
+    setError(null);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      await sendContactForm(formData);
       setFormStatus('success');
+      
       // Reset form after 3 seconds
       setTimeout(() => {
         setFormStatus('idle');
@@ -56,22 +60,33 @@ const ContactForm = () => {
           message: ''
         });
       }, 3000);
-    }, 1500);
+    } catch (err) {
+      setFormStatus('error');
+      setError(err.response?.data?.message || 'Error al enviar el mensaje');
+    }
   };
-  
+
   return (
     <Paper elevation={3} sx={{ p: 4 }}>
       <Typography variant="h5" component="h3" gutterBottom sx={{ fontWeight: 600 }}>
         Contacta con nosotros
       </Typography>
-      
+
       {formStatus === 'success' ? (
-        <Alert 
-          severity="success" 
+        <Alert
+          severity="success"
           sx={{ mb: 3, animation: 'fadeIn 0.5s ease-in-out' }}
         >
           <AlertTitle>Mensaje enviado correctamente</AlertTitle>
           Nos pondremos en contacto contigo lo antes posible. ¡Gracias por contactar con TEC Movil!
+        </Alert>
+      ) : formStatus === 'error' ? (
+        <Alert
+          severity="error"
+          sx={{ mb: 3, animation: 'fadeIn 0.5s ease-in-out' }}
+        >
+          <AlertTitle>Error al enviar el mensaje</AlertTitle>
+          {error || 'Por favor, inténtalo de nuevo más tarde.'}
         </Alert>
       ) : (
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
@@ -89,7 +104,7 @@ const ContactForm = () => {
                 placeholder="Tu nombre"
               />
             </Grid>
-            
+
             <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 fullWidth
@@ -104,7 +119,7 @@ const ContactForm = () => {
                 placeholder="tucorreo@ejemplo.com"
               />
             </Grid>
-            
+
             <Grid size={{ xs: 12, md: 6 }}>
               <TextField
                 fullWidth
@@ -126,7 +141,7 @@ const ContactForm = () => {
                 }}
               />
             </Grid>
-            
+
             <Grid size={{ xs: 12, md: 6 }}>
               <FormControl fullWidth>
                 <InputLabel id="device-label">Dispositivo</InputLabel>
@@ -148,8 +163,8 @@ const ContactForm = () => {
                 </Select>
               </FormControl>
             </Grid>
-            
-            <Grid size={{ xs: 12}}>
+
+            <Grid size={{ xs: 12 }}>
               <FormControl fullWidth>
                 <InputLabel id="issue-label">Tipo de problema</InputLabel>
                 <Select
@@ -170,8 +185,8 @@ const ContactForm = () => {
                 </Select>
               </FormControl>
             </Grid>
-            
-            <Grid size={{ xs: 12}}>
+
+            <Grid size={{ xs: 12 }}>
               <TextField
                 fullWidth
                 label="Mensaje"
@@ -186,7 +201,7 @@ const ContactForm = () => {
                 placeholder="Describe tu problema o consulta"
               />
             </Grid>
-            <Grid size={{ xs: 12}}>
+            <Grid size={{ xs: 12 }}>
               <Button
                 type="submit"
                 fullWidth
@@ -206,28 +221,28 @@ const ContactForm = () => {
                 {formStatus === 'submitting' ? 'Enviando...' : 'Enviar mensaje'}
               </Button>
             </Grid>
-            
-            <Grid size={{ xs: 12}}>
+
+            <Grid size={{ xs: 12 }}>
               <Typography variant="body2" color="text.secondary" align="center">
                 O contáctanos directamente
               </Typography>
               <Box sx={{ display: 'flex', justifyContent: 'center', gap: 3, mt: 1 }}>
-                <Link 
-                  href="tel:(3757)460569" 
+                <Link
+                  href="tel:(3757)460569"
                   color="primary"
                   underline="hover"
                   sx={{ display: 'flex', alignItems: 'center' }}
                 >
-                  <Phone size={16} style={{ marginRight: theme.spacing(0.5) }} /> 
+                  <Phone size={16} style={{ marginRight: theme.spacing(0.5) }} />
                   (3757)460569
                 </Link>
-                <Link 
-                  href="mailto:info@tecmovil.com" 
+                <Link
+                  href="mailto:info@tecmovil.com"
                   color="primary"
                   underline="hover"
                   sx={{ display: 'flex', alignItems: 'center' }}
                 >
-                  <Mail size={16} style={{ marginRight: theme.spacing(0.5) }} /> 
+                  <Mail size={16} style={{ marginRight: theme.spacing(0.5) }} />
                   info@tecmovil.com
                 </Link>
               </Box>

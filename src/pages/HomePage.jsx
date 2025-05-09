@@ -8,7 +8,10 @@ import {
   Button,
   Card,
   CardContent,
-
+  Avatar,
+  Chip,
+  Divider,
+  Icon,
   useTheme
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -170,7 +173,7 @@ const HomePage = () => {
       <Hero
         title="Servicio profesional de reparación de móviles"
         subtitle="En TEC Movil ofrecemos reparaciones rápidas y de calidad para todas las marcas de smartphones. Repuestos originales y garantía en todas nuestras reparaciones."
-        imageUrl="../../public/img/tecnomivl-img.webp"
+        imageUrl="/img/tecnomivl-img.webp"
         primaryButtonText="Solicitar Reparación"
         primaryButtonLink="/contacto"
         secondaryButtonText="Ver Repuestos"
