@@ -80,13 +80,13 @@ const Footer = () => {
                 Ofrecemos servicio rápido y de calidad para todas las marcas.
               </Typography>
               <Box display="flex" mt={2}>
-                <SocialIcon href="#" aria-label="Facebook">
+                <SocialIcon href="https://www.facebook.com/tec.movil.54" aria-label="Facebook">
                   <Facebook fontSize="medium" />
                 </SocialIcon>
-                <SocialIcon href="#" aria-label="Instagram">
+                <SocialIcon href="https://www.instagram.com/tec__movil/" aria-label="Instagram">
                   <Instagram fontSize="medium" />
                 </SocialIcon>
-                <SocialIcon href="#" aria-label="WhatsApp">
+                <SocialIcon href="https://wa.me/+543757460569" aria-label="WhatsApp">
                   <WhatsApp fontSize="medium" />
                 </SocialIcon>
               </Box>
