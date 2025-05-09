@@ -24,7 +24,7 @@ dist-ssr
 *.sw?
 
 #projecto
-src/services/productServices.js
+#src/services/productServices.js
 
 node_modules
 .env
