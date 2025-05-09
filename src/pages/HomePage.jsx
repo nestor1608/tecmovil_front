@@ -191,10 +191,10 @@ const HomePage = () => {
               <StatCard value="98%" label="Clientes satisfechos" delay={100} />
             </Grid>
             <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <StatCard value="10+" label="Años de experiencia" delay={200} />
+              <StatCard value="6+" label="Años de experiencia" delay={200} />
             </Grid>
             <Grid size={{ xs: 12, sm: 6, md: 3 }}>
-              <StatCard value="12" label="Meses de garantía" delay={300} />
+              <StatCard value="30" label="Dias de garantía" delay={300} />
             </Grid>
           </Grid>
         </Container>
