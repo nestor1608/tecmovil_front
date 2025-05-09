@@ -243,7 +243,7 @@ const ContactForm = () => {
                   sx={{ display: 'flex', alignItems: 'center' }}
                 >
                   <Mail size={16} style={{ marginRight: theme.spacing(0.5) }} />
-                  info@tecmovil.com
+                  Nor-cell@hotmail.com
                 </Link>
               </Box>
             </Grid>
