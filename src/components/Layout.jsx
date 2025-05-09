@@ -3,17 +3,17 @@ import { useState, useEffect } from 'react';
 import { Outlet, Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Smartphone, Phone, Mail } from 'lucide-react';
 import Footer from './Footer';
-import { 
-  AppBar, 
-  Toolbar, 
-  Box, 
-  Button, 
-  Container, 
-  IconButton, 
-  Drawer, 
-  List, 
-  ListItem, 
-  ListItemButton, 
+import {
+  AppBar,
+  Toolbar,
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
   ListItemText,
   Typography,
   useScrollTrigger,
@@ -33,10 +33,10 @@ function HideOnScroll({ children }) {
 const Layout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
-  
+
   useEffect(() => {
     closeMenu();
   }, [location]);
@@ -44,25 +44,25 @@ const Layout = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Top contact info bar */}
-      <Box sx={{ 
-        bgcolor: '#0f172a', 
-        color: 'white', 
+      <Box sx={{
+        bgcolor: '#0f172a',
+        color: 'white',
         py: 1,
         display: { xs: 'none', sm: 'block' }
       }}>
         <Container maxWidth="lg">
-          <Box sx={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
+          <Box sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
             alignItems: 'center',
             flexWrap: 'wrap',
             gap: 2
           }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
-              <Button 
-                href="tel:+543757460569" 
+              <Button
+                href="tel:+543757460569"
                 startIcon={<Phone size={16} />}
-                sx={{ 
+                sx={{
                   color: 'white',
                   '&:hover': { color: '#90caf9' },
                   textTransform: 'none',
@@ -73,10 +73,10 @@ const Layout = () => {
               >
                 +543757460569
               </Button>
-              <Button 
-                href="mailto:Nor-cell@hotmail.com" 
+              <Button
+                href="mailto:Nor-cell@hotmail.com"
                 startIcon={<Mail size={16} />}
-                sx={{ 
+                sx={{
                   color: 'white',
                   '&:hover': { color: '#90caf9' },
                   textTransform: 'none',
@@ -94,12 +94,12 @@ const Layout = () => {
           </Box>
         </Container>
       </Box>
-      
+
       {/* Main navigation */}
       <HideOnScroll>
-        <AppBar 
-          position="sticky" 
-          sx={{ 
+        <AppBar
+          position="sticky"
+          sx={{
             bgcolor: 'background.paper',
             backdropFilter: 'blur(8px)',
             boxShadow: 'none',
@@ -110,10 +110,26 @@ const Layout = () => {
           <Container maxWidth="lg">
             <Toolbar sx={{ justifyContent: 'space-between', px: '0 !important' }}>
               {/* Logo */}
-              <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', color: 'inherit' }}>
-                <Smartphone size={48}  style={{ color: '#1976d2', marginRight: 8 }} />
+              <Link
+                to="/"
+                style={{
+                  textDecoration: 'none',
+                  display: 'flex',
+                  alignItems: 'center',
+                  color: 'inherit',
+                }}
+              >
+                <img
+                  src="./img/tecmovil-icono.webp" 
+                  alt="Logo"
+                  style={{ width: 48, height: 55, marginRight: 4 }}
+                />
                 <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                  <Typography variant="h6" component="span" sx={{ fontWeight: 'bold', color: '#1976d2' }}>
+                  <Typography
+                    variant="h6"
+                    component="span"
+                    sx={{ fontWeight: 'bold', color: '#1976d2' }}
+                  >
                     TECMOVIL
                   </Typography>
                   <Typography variant="caption" sx={{ color: 'text.secondary' }}>
@@ -121,50 +137,50 @@ const Layout = () => {
                   </Typography>
                 </Box>
               </Link>
-              
+
               {/* Desktop Navigation */}
               <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 1 }}>
-                <Button 
+                <Button
                   component={NavLink}
                   to="/"
                   end
-                  sx={{ 
+                  sx={{
                     color: location.pathname === '/' ? '#1976d2' : '#3e3f40',
                     fontWeight: location.pathname === '/' ? 'bold' : 'normal'
                   }}
                 >
                   Inicio
                 </Button>
-                <Button 
+                <Button
                   component={NavLink}
                   to="/tienda"
-                  sx={{ 
+                  sx={{
                     color: location.pathname === '/tienda' ? '#1976d2' : '#3e3f40',
                     fontWeight: location.pathname === '/tienda' ? 'bold' : 'normal'
                   }}
                 >
                   Tienda
                 </Button>
-                <Button 
+                <Button
                   component={NavLink}
                   to="/contacto"
-                  sx={{ 
+                  sx={{
                     color: location.pathname === '/contacto' ? '#1976d2' : '#3e3f40',
                     fontWeight: location.pathname === '/contacto' ? 'bold' : 'normal'
                   }}
                 >
                   Contacto
                 </Button>
-                <Button 
-                  component={Link} 
-                  to="/contacto" 
-                  variant="contained" 
+                <Button
+                  component={Link}
+                  to="/contacto"
+                  variant="contained"
                   sx={{ ml: 2, bgcolor: '#1976d2' }}
                 >
                   Solicitar Reparación
                 </Button>
               </Box>
-              
+
               {/* Mobile menu button */}
               <IconButton
                 color="dark"
@@ -179,7 +195,7 @@ const Layout = () => {
           </Container>
         </AppBar>
       </HideOnScroll>
-      
+
       {/* Mobile Navigation */}
       <Drawer
         anchor="right"
@@ -192,9 +208,9 @@ const Layout = () => {
         <Box sx={{ p: 2 }}>
           <List>
             <ListItem disablePadding>
-              <ListItemButton 
-                component={NavLink} 
-                to="/" 
+              <ListItemButton
+                component={NavLink}
+                to="/"
                 end
                 selected={location.pathname === '/'}
                 onClick={closeMenu}
@@ -204,8 +220,8 @@ const Layout = () => {
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton 
-                component={NavLink} 
+              <ListItemButton
+                component={NavLink}
                 to="/tienda"
                 selected={location.pathname === '/tienda'}
                 onClick={closeMenu}
@@ -215,8 +231,8 @@ const Layout = () => {
               </ListItemButton>
             </ListItem>
             <ListItem disablePadding>
-              <ListItemButton 
-                component={NavLink} 
+              <ListItemButton
+                component={NavLink}
                 to="/contacto"
                 selected={location.pathname === '/contacto'}
                 onClick={closeMenu}
@@ -226,12 +242,12 @@ const Layout = () => {
               </ListItemButton>
             </ListItem>
           </List>
-          
+
           <Box sx={{ px: 2, mt: 2 }}>
-            <Button 
-              fullWidth 
-              variant="contained" 
-              component={Link} 
+            <Button
+              fullWidth
+              variant="contained"
+              component={Link}
               to="/contacto"
               onClick={closeMenu}
               sx={{ bgcolor: '#1976d2' }}
@@ -239,15 +255,15 @@ const Layout = () => {
               Solicitar Reparación
             </Button>
           </Box>
-          
+
           {/* Mobile contact info */}
           <Divider sx={{ my: 3 }} />
           <Box sx={{ px: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <Button 
+            <Button
               fullWidth
-              href="tel:+543757460569" 
+              href="tel:+543757460569"
               startIcon={<Phone size={18} />}
-              sx={{ 
+              sx={{
                 justifyContent: 'flex-start',
                 color: 'text.secondary',
                 textTransform: 'none',
@@ -257,11 +273,11 @@ const Layout = () => {
             >
               +543757460569
             </Button>
-            <Button 
+            <Button
               fullWidth
-              href="mailto:Nor-cell@hotmail.com" 
+              href="mailto:Nor-cell@hotmail.com"
               startIcon={<Mail size={18} />}
-              sx={{ 
+              sx={{
                 justifyContent: 'flex-start',
                 color: 'text.secondary',
                 textTransform: 'none',
@@ -277,11 +293,11 @@ const Layout = () => {
           </Box>
         </Box>
       </Drawer>
-      
+
       <Box component="main" sx={{ flexGrow: 1 }}>
         <Outlet />
       </Box>
-      
+
       <Footer />
     </Box>
   );

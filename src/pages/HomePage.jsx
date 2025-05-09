@@ -259,7 +259,7 @@ const HomePage = () => {
               <FeatureItem
                 icon={Shield}
                 title="Garantía en Reparaciones"
-                description="Todas nuestras reparaciones incluyen garantía de 12 meses. Tu tranquilidad es nuestra prioridad."
+                description="Todas nuestras reparaciones incluyen garantía de 30 dias. Tu tranquilidad es nuestra prioridad."
               />
 
               <FeatureItem
@@ -429,7 +429,7 @@ const HomePage = () => {
                 display: { xs: 'none', md: 'block' }
               }}>
                 <img
-                  src="https://images.pexels.com/photos/6519672/pexels-photo-6519672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                  src="/img/tecnomivl-img.webp"
                   alt="Equipo de TEC Movil"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
