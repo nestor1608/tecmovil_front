@@ -192,7 +192,7 @@ const ContactPage = () => {
                         Garantía en todas las reparaciones
                       </Typography>
                       <Typography variant="body2" color="text.secondary">
-                        Ofrecemos 12 meses de garantía en todas nuestras reparaciones.
+                        Ofrecemos 30 dias de garantía en todas nuestras reparaciones.
                       </Typography>
                     </Box>
                   </Box>
@@ -267,7 +267,7 @@ const ContactPage = () => {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography variant="body2" color="text.secondary">
-                  Todas nuestras reparaciones incluyen una garantía de 12 meses que cubre cualquier defecto en los repuestos utilizados o en la mano de obra.
+                  Todas nuestras reparaciones incluyen una garantía de 30 dias que cubre cualquier defecto en los repuestos utilizados o en la mano de obra.
                 </Typography>
               </AccordionDetails>
             </Accordion>
