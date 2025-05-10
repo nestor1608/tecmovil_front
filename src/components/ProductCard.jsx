@@ -59,7 +59,7 @@ const ProductCard = ({
               e.target.src = '/images/repair-placeholder.jpg';
             }}
           />
-          
+
           <Box sx={{ position: 'absolute', top: 8, right: 8 }}>
             <Chip
               label={inStock ? 'En Stock' : 'Agotado'}
@@ -67,7 +67,7 @@ const ProductCard = ({
               size="small"
             />
           </Box>
-          
+
           {isIllustrative && (
             <Tooltip title="Imagen ilustrativa - No corresponde al módulo original" arrow>
               <Box sx={{
@@ -90,11 +90,23 @@ const ProductCard = ({
         </ProductImageContainer>
 
         <CardContent>
-          <Typography gutterBottom variant="h6" component="h3" noWrap>
+          <Typography
+            gutterBottom
+            variant="h6"
+            component="h3"
+            sx={{
+              display: '-webkit-box',
+              WebkitLineClamp: 3, // Máximo de 3 líneas
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+              minHeight: '3.6em', // Altura mínima para 2 líneas (ajusta según tu tipografía)
+              lineHeight: '1.2em', // Altura de línea compacta
+            }}
+          >
             {title}
           </Typography>
-          
-          <Typography variant="body2" color="text.secondary" sx={{ 
+
+          <Typography variant="body2" color="text.secondary" sx={{
             mb: 2,
             display: '-webkit-box',
             WebkitLineClamp: 2,
@@ -103,9 +115,9 @@ const ProductCard = ({
           }}>
             {description}
           </Typography>
-          
+
           <Divider sx={{ my: 1 }} />
-          
+
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Typography variant="body2" color="text.secondary">
               Precio total:
