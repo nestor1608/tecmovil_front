@@ -36,66 +36,83 @@ export const sendContactForm = async (formData) => {
     }
 };
 
-export const fetchProducts = async () => {
-    if (!SHOP_NAME || !ACCESS_TOKEN || !API_VERSION) {
-        throw new Error("Faltan variables de entorno de Shopify");
-    }
-    const query = `
-    {
-      products(first: 100) {
-        edges {
-          node {
-            id
-            title
-            description
-            featuredImage {
-              url
-              altText
-            }
-            variants(first: 10) {
-              edges {
-                node {
-                  id
-                  title
-                  price {
-                    amount
-                    currencyCode
-                  }
-                }
-              }
-            }
-          }
-        }
-        pageInfo {
-          hasNextPage
-          endCursor
-        }
-      }
-    }
-  `;
+export const fetchAllProducts = async () => {
+  if (!SHOP_NAME || !ACCESS_TOKEN || !API_VERSION) {
+      throw new Error("Faltan variables de entorno de Shopify");
+  }
 
-    try {
-        const response = await shopifyClient.post('/graphql.json', { query });
-        return response.data.data.products.edges.map(edge => ({
-            id: edge.node.id,
-            title: edge.node.title.replace(/^Modulo\s*/i, 'Reparación de módulo '),
-            description: edge.node.description || 'Reparación profesional de módulo de pantalla',
-            imageUrl: edge.node.featuredImage?.url || 'https://via.placeholder.com/300',
-            price: parseFloat(edge.node.variants.edges[0].node.price.amount),
-            currency: edge.node.variants.edges[0].node.price.currencyCode,
-            inStock: parseFloat(edge.node.variants.edges[0].node.price.amount) > 0
-        }));
-    } catch (error) {
-        console.error('Error fetching products from Shopify:', error);
-        return [];
-    }
+  let allProducts = [];
+  let hasNextPage = true;
+  let endCursor = null;
+
+  while (hasNextPage) {
+      const query = `
+      {
+          products(first: 100${endCursor ? `, after: "${endCursor}"` : ''}) {
+              edges {
+                  node {
+                      id
+                      title
+                      description
+                      featuredImage {
+                          url
+                          altText
+                      }
+                      variants(first: 10) {
+                          edges {
+                              node {
+                                  id
+                                  title
+                                  price {
+                                      amount
+                                      currencyCode
+                                  }
+                              }
+                          }
+                      }
+                  }
+              }
+              pageInfo {
+                  hasNextPage
+                  endCursor
+              }
+          }
+      }`;
+
+      try {
+          const response = await shopifyClient.post('/graphql.json', { query });
+          const products = response.data.data.products.edges.map(edge => ({
+              id: edge.node.id,
+              title: edge.node.title.replace(/^Modulo\s*/i, 'Reparación de módulo '),
+              description: edge.node.description || 'Reparación profesional de módulo de pantalla',
+              imageUrl: edge.node.featuredImage?.url || 'https://via.placeholder.com/300',
+              price: parseFloat(edge.node.variants.edges[0].node.price.amount),
+              currency: edge.node.variants.edges[0].node.price.currencyCode,
+              inStock: parseFloat(edge.node.variants.edges[0].node.price.amount) > 0
+          }));
+
+          allProducts = [...allProducts, ...products];
+          hasNextPage = response.data.data.products.pageInfo.hasNextPage;
+          endCursor = response.data.data.products.pageInfo.endCursor;
+      } catch (error) {
+          console.error('Error fetching products from Shopify:', error);
+          break;
+      }
+  }
+
+  return allProducts;
+};
+
+export const getPaginatedProducts = (products, page = 1, pageSize = 20) => {
+  const startIndex = (page - 1) * pageSize;
+  return products.slice(startIndex, startIndex + pageSize);
 };
 
 export const filterProducts = (products, searchTerm) => {
-    if (!searchTerm) return products;
+  if (!searchTerm) return products;
 
-    return products.filter(product =>
-        product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+  return products.filter(product =>
+      product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.description.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 };
