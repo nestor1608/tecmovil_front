@@ -44,6 +44,7 @@ const ProductCard = ({
   imageUrl,
   currency,
   inStock,
+  quantityAvailable,
   isIllustrative,
   sx
 }) => {
@@ -62,10 +63,16 @@ const ProductCard = ({
 
           <Box sx={{ position: 'absolute', top: 8, right: 8 }}>
             <Chip
-              label={inStock ? 'En Stock' : 'Agotado'}
-              color={inStock ? 'success' : 'error'}
-              size="small"
-            />
+  label={
+    inStock
+      ? quantityAvailable > 0
+        ? `En stock (${quantityAvailable} disponibles)`
+        : 'En stock'
+      : 'Agotado'
+  }
+  color={inStock ? 'success' : 'error'}
+  size="small"
+/>
           </Box>
 
           {isIllustrative && (

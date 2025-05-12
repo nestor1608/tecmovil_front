@@ -306,6 +306,7 @@ const ShopPage = () => {
                         imageUrl={product.imageUrl}
                         currency={product.currency}
                         inStock={product.inStock}
+                        quantityAvailable={product.quantityAvailable}
                         isIllustrative={product.isIllustrative}
                         sx={{ height: '100%', width: '100%' }}
                       />
